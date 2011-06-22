@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	
+	
+	<title>Make Image</title>
+	<script type="text/javascript">
+		function $(item){
+			alert('If you see this message, please let the webmaster on which page you saw it. \n\nThank you, \nJosh\nWebmaster\njdk3414@rit.edu'); 
+			return document.getElementById(item);
+		}
+		
+		function load(which){
+			var string = 'http://www-staging.rit.edu/sg/quidditch/gd/image.php?';
+			for(var i=0;i < which.getElementsByTagName('input').length;i++){
+				if(which.getElementsByTagName('input')[i].type == 'text'){
+					string+= which.getElementsByTagName('input')[i].id+"="+which.getElementsByTagName('input')[i].value+"&";
+				}
+			}
+			
+			window.open(string, 'mywindow');
+			return false;
+		}
+	</script>
+		
+</head>
+
+<body>
+<form method="post" action="" onsubmit="return load(this)"-->
+	backgroundColor:<input id="backgroundColor" type="text"/><br/>
+	textColor:<input id="textColor" type="text"/><br/>
+	text:<input id="text" type="text"/><br/>
+	
+	<input type="submit"/>
+</form>
+</body>
+</html>
+
+

@@ -1,0 +1,42 @@
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+ErrorDocument 404 /sg/runningclub/sitefiles/errordocs/errordoc.php?type=404
+ErrorDocument 403 /sg/runningclub/sitefiles/errordocs/errordoc.php?type=403
+
+RewriteEngine on
+
+# Change this to whatever the root folder of the site is.
+# Comment it out if the site is located at http://www.example.com
+# If it is located at http://www.example.com/subdir make it 
+# RewriteBase /subdir
+RewriteBase /Running-Club-Site/www/
+
+
+
+#These are rewrites
+	#Redirects to the main page from the root of the site
+	RewriteRule ^$ main/ [R]
+	
+	#FOR RACES - ONLY ON RUNNINGCLUB PAGE
+	RewriteRule ^preloaded_iframe_text.html$ special-PHP-pages-here/routes/preloaded_iframe_text.html [R]
+
+	#Add a slash to the end of URL's in root, then 1 subdirectory (admin, communicationPortal)
+	RewriteRule ^([A-Za-z]+)$ $1/ [R]
+	RewriteRule ^([A-Za-z]+/[A-Za-z]+)$ $1/ [R]
+
+	#Site Settings Redirect
+	RewriteRule ^settings/$ sitefiles/adminfiles/editpage.php?page=settings
+
+	#Site Settings Redirect
+	RewriteRule ^settings/(.+)$ sitefiles/specialPages/admin/siteSettings/$1
+
+	#Redirect pages invisibly to the content page to deliver content
+	RewriteRule ^([A-Za-z]+)/$ sitefiles/content.php?page=$1
+	
+	#Redirect the communication partal
+	RewriteRule ^members/[cC]ommunication[pP]ortal/$ sitefiles/adminfiles/editpage.php?page=communicationPortal
+	
+	#Redirect admin pages invisibly to the one admin page
+	RewriteRule ^([A-Za-z]+)/admin/$ sitefiles/adminfiles/editpage.php?page=$1&admin=true

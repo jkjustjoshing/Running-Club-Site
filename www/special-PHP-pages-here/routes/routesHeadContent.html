@@ -1,0 +1,51 @@
+<script type="text/javascript"> var current = 'none';  function selectRoute(id, map){     if (current != 'none'){         document.getElementById(current).style.display = 'none';     } else document.getElementById('paceDisclaimer').style.display = '';     document.getElementById(id).style.display = '';     current = id;     document.getElementById('routeframe').src = map+'&output=embed&z=13'; } </script>
+<style type="text/css">
+#routesList {
+	position:relative;
+	top:-250px;
+	left:420px;
+}
+
+#routesList div { /*Each route*/
+	padding:0px;
+	margin:0px;
+}
+
+#routesList .nolink {
+	color:#e36f21;
+	text-decoration:none;
+}
+
+#routesList div div{ /*Each item (make float)*/
+	float:left;
+	width:110px;
+}
+
+#routesList div div.routeTitle {
+	width:210px;
+}
+
+#routesList div div.date {
+	width:80px;
+}
+
+.routeTitle span { /*Description */
+	font-size:8pt;
+}
+
+.infobox {
+	position:absolute;
+	left:0px;
+	top:300px;
+	width:400px;
+}
+
+.infobox .name {
+	font-size:16pt;
+	text-decoration:underline;
+}
+
+.description {
+	font-size:10pt;
+}
+</style>
