@@ -1,1 +1,3 @@
 This is the site used for the RIT Running Club as of 2011. It was made from scratch by Josh Kramer. All Rights Reserved
+
+This change is to figure out branching
